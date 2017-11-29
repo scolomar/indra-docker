@@ -5,3 +5,4 @@ for x in $lista;do docker $x prune -f;done
 docker system prune -f
 sudo service docker restart
 echo finalizado $HOSTNAME
+ip a|awk '/global eth0/{print $2}'|head -1|cut -d/ -f1

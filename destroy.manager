@@ -7,3 +7,4 @@ docker system prune -f
 sudo service docker restart
 sudo rm /home/debian/Docker/friendlyhello/data/appendonly.aof
 echo finalizado $HOSTNAME
+ip a|awk '/global eth0/{print $2}'|head -1|cut -d/ -f1
