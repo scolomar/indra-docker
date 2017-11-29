@@ -1,0 +1,9 @@
+docker stack rm $(docker stack ls|awk '!/NAME/{print $1}')
+docker swarm leave --force
+lista="container image network volume"
+for x in $lista;do docker $x rm $(docker $x ls -q);done
+for x in $lista;do docker $x prune -f;done
+docker system prune -f
+sudo service docker restart
+sudo rm /home/debian/Docker/friendlyhello/data/appendonly.aof
+echo finalizado $HOSTNAME
